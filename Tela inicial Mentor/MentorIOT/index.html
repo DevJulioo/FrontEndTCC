@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Mentor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <button class="toggle-menu" title="Contrair menu">&#9776;</button>
+        <div class="logo">
+            <img src="/Tela inicial Mentor/MentorIOT/img/logoEducaSenai.png" alt="Logo">
+        </div>
+        <div class="user-info">
+            <a href="/Tela inicial Mentor/UserScreenMentor/index.html" class="user-avatar-link">
+                <img id="sidebar-avatar" src="/Tela inicial Mentor/MentorIOT/img/user-avatar.png" alt="Foto do usuário" class="user-avatar">
+            </a>
+            <div id="sidebar-username" class="user-name">Carregando...</div>
+            <div id="sidebar-role" class="user-role">...</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/Tela inicial Mentor/index.html" class="active"><img src="/Tela inicial Mentor/MentorIOT/img/casa.png" alt="Inicial"> Início</a></li>
+                <li><a id="logout-button" href="#"><img src="/Tela inicial Mentor/MentorIOT/img/sair.png" alt="Sair"> Sair</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <button class="expand-sidebar" title="Abrir menu">&#9776;</button>
+
+    <div class="main-content">
+        <div class="grid">
+            <a href="./Alunos/index.html" class="card card-aluno">
+                <img src="img/AlunoIcon.png" alt="Alunos" class="card-icon">
+                <div class="card-text">
+                    <span class="nome-curso">Alunos</span>
+                </div>
+            </a>
+            <a href="./Feedback/index.html" class="card">
+                <img src="img/FeedBackIcon.png" alt="Feedback" class="card-icon">
+                <div class="card-text">
+                    <span class="nome-curso">Feedbacks</span>
+                </div>
+            </a>
+            <a href="./Reunioes/index.html" class="card">
+                <img src="img/reuniao-icon.svg" alt="Reuniões" class="card-icon">
+                <div class="card-text">
+                    <span class="nome-curso">Reuniões</span>
+                </div>
+            </a>
+        </div>
+
+        <section class="mentor-cta" aria-label="Mensagem do mentor">
+            <div class="mentor-cta__glow" aria-hidden="true"></div>
+            <div class="mentor-cta__content">
+                <h2 class="mentor-cta__title">
+                    Esta é a tela do <span class="mentor-cta__rotate" data-words='["mentor","orientador","guia"]'>mentor</span>
+                </h2>
+                <p class="mentor-cta__subtitle">
+                    Aqui você acompanha o desempenho dos alunos, envia feedbacks e gerencia solicitações de reuniões.
+                </p>
+            </div>
+            <div class="mentor-cta__tip" id="mentorTip" role="note" aria-live="polite"></div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

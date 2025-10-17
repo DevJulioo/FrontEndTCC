@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Trilha de Aprendizado - BACK</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <header>
+        <img src="menu.png" alt="Ícone Menu" class="bck-icone-menu" id="bck-menuBtn" />
+    </header>
+
+    <div id="bck-sideNav" class="bck-side-nav bck-hidden">
+        <div class="bck-logo">
+            <img src="logoEducaSenai.png" alt="Logo" />
+        </div>
+        <div class="bck-user-info">
+            <a href="/UserScreen/index.html" class="bck-user-avatar-link">
+                <img id="sidebar-avatar" src="/BACK/Trilha de aprendizado BACK/user-avatar.png" alt="Foto do usuário" class="bck-user-avatar" />
+            </a>
+            <div id="sidebar-username" class="bck-user-name">Carregando...</div>
+            <div id="sidebar-role" class="bck-user-role">...</div>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/telaprincipal/index.html" class="bck-active">
+                        <img src="casa.png" alt="Inicial" />
+                        Início
+                    </a>
+                </li>
+                <li>
+                    <a id="logout-button" href="#">
+                        <img src="sair.png" alt="Sair" />
+                        Sair
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    
+    <div class="bck-mascote">
+        <img src="./eduvfinho no back (1).gif" alt="Mascote" />
+    </div>
+
+    <div class="bck-trilha">
+        <div class="bck-bolinha" data-numero="1">1</div>
+        <div class="bck-bolinha" data-numero="2">2</div>
+        <div class="bck-bolinha" data-numero="3">3</div>
+        <div class="bck-bolinha" data-numero="4">4</div>
+        <div class="bck-bolinha" data-numero="5">5</div>
+        <div class="bck-bolinha" data-numero="6">6</div>
+        <div class="bck-bolinha" data-numero="7">7</div>
+        <button id="bck-btnReset" class="bck-btn-reset" disabled>Do Início</button>
+    </div>
+
+    <div id="bck-waveEffect">
+        <svg class="bck-wave-svg" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,40 Q180,0 360,40 T720,40 T1080,40 T1440,40 V80 H0 Z" fill="#338089"/>
+        </svg>
+    </div>
+
+    <script src="script.js"></script>
+    <audio id="bck-bubbleSound" src="bolhas.mp3" preload="auto"></audio>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Meus Feedbacks</title>
+    <link rel="stylesheet" href="feedbacks.css" /> 
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo"><img src="/UserScreen/logoEducaSenai.png" alt="Logo"></div>
+        <div class="user-info">
+            <a href="/UserScreen/index.html" class="user-avatar-link"><img id="sidebar-avatar" src="/telaprincipal/img/user-avatar.png" alt="Foto do usuário" class="user-avatar"></a>
+            <div id="sidebar-username" class="user-name">Edufinho Aqua</div>
+            <div id="sidebar-role" class="user-role">Aluno</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/telaprincipal/index.html" class="active"><img src="/UserScreen/casa.png" alt="Inicial"> Inicio</a></li>
+                <li><a id="logout-button" href="#"><img src="/UserScreen/sair.png" alt="Sair"> Sair</a></li>
+            </ul>
+        </nav>
+        <button class="toggle-menu" title="Contrair menu">&#9776;</button>
+    </div>
+    </div>
+    <button class="expand-sidebar" title="Abrir menu">&#9776;</button>
+
+    <div class="main-content">
+        <header class="page-header">
+            <h1>Meus Feedbacks</h1>
+            <div class="header-actions">
+                <button id="mark-all" class="btn primary" title="Marcar todos como lidos">Marcar todos como lidos</button>
+            </div>
+        </header>
+
+        <section class="tools">
+            <div class="search">
+                <input id="search" type="search" placeholder="Buscar por palavra, mentor ou data…" />
+            </div>
+            <div class="filters">
+                <label class="filter"><input type="radio" name="status" value="all" checked /> <span>Todos</span></label>
+                <label class="filter"><input type="radio" name="status" value="unread" /> <span>Não lidos</span></label>
+                <label class="filter"><input type="radio" name="status" value="read" /> <span>Lidos</span></label>
+                <select id="sort">
+                    <option value="newest">Mais recentes</option>
+                    <option value="oldest">Mais antigos</option>
+                    <option value="teacher">Mentor (A–Z)</option>
+                </select>
+            </div>
+        </section>
+
+        <section id="counter" class="counter"></section>
+        <section id="list" class="list"></section>
+
+        <template id="item-template">
+            <article class="card" tabindex="0">
+                <div class="card-head">
+                    <div class="badge"></div>
+                    <time class="date"></time>
+                </div>
+                <p class="text"></p>
+                <div class="meta">
+                    <span class="teacher"></span>
+                    <div class="actions">
+                        <button class="btn ghost toggle-read"></button>
+                    </div>
+                </div>
+            </article>
+        </template>
+    </div>
+
+    <script src="feedbacks.js"></script>
+</body>
+</html>

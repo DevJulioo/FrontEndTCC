@@ -1,0 +1,82 @@
+/* Reset básico de margens e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: white; /* Tela de fundo branca */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute; /* Fixando no topo da tela */
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    padding: 0 20px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+}
+
+.icon img {
+    width: 30px;
+    height: 30px;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 60px; /* Espaço entre o topo e o conteúdo */
+}
+
+.content-box {
+    background-color: #63b1b8;
+    border-radius: 15px; /* Borda arredondada */
+    padding: 30px;
+    width: 700px; /* Aumentando a largura do retângulo */
+    height: 400px; /* Mantendo a altura "gordinha" */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    position: relative;
+}
+
+.content {
+    font-size: 16px;
+    line-height: 1.5;
+    color: white;
+}
+
+.dolphin-image {
+    width: 400px; /* Largura da imagem */
+    height: 400px; /* Altura da imagem */
+    overflow: hidden; /* Cortar metade da imagem */
+    position: absolute;
+    right: -100px; /* Coloca a imagem mais à direita, cortando a metade */
+    top: 50%; /* Centraliza a imagem verticalmente */
+    transform: translateY(-50%); /* Ajusta para que a imagem fique bem posicionada */
+}
+
+.dolphin-image img {
+    width: 200%; /* Faz a imagem ocupar o dobro da largura do container */
+    height: auto;
+    object-fit: cover;
+}

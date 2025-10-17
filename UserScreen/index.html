@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Meu Perfil</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo"><img src="/UserScreen/logoEducaSenai.png" alt="Logo"></div>
+        <div class="user-info">
+            <a href="/UserScreen/index.html" class="user-avatar-link"><img id="sidebar-avatar" src="/telaprincipal/img/user-avatar.png" alt="Foto do usuário" class="user-avatar"></a>
+            <div id="sidebar-username" class="user-name">Edufinho Aqua</div>
+            <div id="sidebar-role" class="user-role">Aluno</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/telaprincipal/index.html" class="active"><img src="/UserScreen/casa.png" alt="Inicial"> Inicio</a></li>
+                <li><a id="logout-button" href="#"><img src="/UserScreen/sair.png" alt="Sair"> Sair</a></li>
+            </ul>
+        </nav>
+        <button class="toggle-menu" title="Contrair menu">&#9776;</button>
+    </div>
+    <button class="expand-sidebar" title="Abrir menu">&#9776;</button>
+
+    <main class="main-content">
+        <h1>Meu Perfil</h1>
+        
+        <div class="profile-board">
+            <div class="profile-column">
+                <div class="card">
+                    <div class="profile-head">
+                        <div class="avatar-wrap">
+                            <img id="avatar-img" src="/img/user-avatar.jpg" alt="Foto do usuário"/>
+                            <label class="avatar-upload">
+                                <input type="file" id="avatar-input" accept="image/*" /> Trocar foto
+                            </label>
+                        </div>
+                        <div class="identity">
+                            <h2 id="nome-view">Edufinho Aqua</h2>
+                            <p class="role" id="role-view">Aluno</p>
+                        </div>
+                    </div>
+                    <form class="form" id="perfil-form">
+                        <div class="field">
+                            <label for="nome">Nome</label>
+                            <input type="text" id="nome" required/>
+                        </div>
+                        <div class="field">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required/>
+                        </div>
+                        <div class="field">
+                            <label for="senha">Nova Senha</label>
+                            <div class="password-row">
+                                <input type="password" id="senha" placeholder="Deixe em branco para não alterar"/>
+                                <button type="button" class="muted" id="toggle-pass">Mostrar</button>
+                            </div>
+                        </div>
+                        <button type="submit" class="primary">Salvar Alterações</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="stats-column">
+                <div class="card">
+                    <div class="progress-card">
+                        <h3>Progresso Geral</h3>
+                        <div class="ring">
+                            <svg class="ring-svg" width="160" height="160">
+                                <circle class="ring-bg" cx="80" cy="80" r="70"></circle>
+                                <circle id="progress-ring-fg" class="ring-fg" cx="80" cy="80" r="70"></circle>
+                            </svg>
+                            <div id="progress-text" class="ring-center">0%</div>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <span class="label">Nota Média</span>
+                        <span class="value" id="grade-value">0.0<span class="outof">/10</span></span>
+                    </div>
+                    <div class="stat">
+                        <span class="label">Atividades Concluídas</span>
+                        <span class="value" id="activities-completed-value">0<span class="outof">/16</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/scripts/shared.js"></script>
+    <script src="perfil.js"></script>
+</body>
+</html>

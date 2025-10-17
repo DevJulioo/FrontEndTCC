@@ -1,0 +1,110 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #fff; 
+    
+}
+ 
+/* Estilos para a barra de progresso */
+.progress-bar {
+    width: 100%; /* Largura total do contêiner da barra de progresso */
+    height: 20px; /* Altura da barra */
+    background-color: #ddd; /* Cor de fundo da barra (cinza claro) */
+    border-radius: 10px; /* Borda arredondada para um visual mais suave */
+    overflow: hidden; /* Evita que o conteúdo ultrapasse os limites da barra */
+}
+
+/* A cor de preenchimento da barra de progresso */
+.progress-bar .progress {
+    height: 100%; /* Preenche toda a altura do contêiner */
+    width: 0%; /* Define o valor inicial do progresso (0%) */
+    background-color: #63B1B8; /* Cor de preenchimento, conforme solicitado */
+    border-radius: 10px; /* Bordas arredondadas também para o preenchimento */
+    transition: width 0.3s ease-in-out; /* Transição suave ao mudar o progresso */
+}
+
+ 
+h2 {
+    font-size: 24px;
+    margin-top: 20px;
+
+}
+ 
+.semester-select {
+    padding: 8px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 2px solid #63B1B8; /* Borda verde */
+    border-radius: 5px; /* Bordas arredondadas */
+    background-color: #fff; /* Fundo branco */
+    outline: none; /* Remove o contorno padrão do foco */
+    transition: border 0.3s ease; /* Transição suave para a borda */
+    
+}
+ 
+.semester-select:focus {
+    border-color: #4ac5c3; /* Muda a cor da borda para um verde mais forte quando focado */
+}
+ 
+.subjects {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+ 
+/* Área principal com título e seleções - fundo branco */
+.main-content {
+    text-align: center;
+    padding: 20px 20px;
+    width: 600px;
+    margin-left: 320px;
+    border-radius: 8px;
+    box-shadow: 4px 5px 5px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
+
+.subject {
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    width: 150px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    
+}
+ 
+.subject:hover {
+    transform: scale(1.05); 
+}
+ 
+.subject img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+ 
+.subject p {
+    font-weight: bold;
+    color: #333;
+}
+
+.continue-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #63b1b8;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    margin-top: 20px; /* Adiciona espaço entre o conteúdo das matérias e o botão */
+}
+
+.continue-btn:hover {
+    transform: scale(1.05);
+}

@@ -1,0 +1,95 @@
+/* Estilos para o body */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.container {
+    text-align: center;
+    padding: 20px 20px;
+    width: 600px;
+    margin-left: 30px;
+    border-radius: 8px;
+    box-shadow: 4px 5px 5px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
+
+/* Estilos para o título */
+h2 {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+/* Estilo do seletor de semestre */
+.semester-select {
+    padding: 8px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 2px solid #63B1B8;
+    border-radius: 5px;
+    background-color: #fff;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.semester-select:focus {
+    border-color: #63B1B8;
+}
+
+/* Estilo para os tópicos de disciplinas */
+.subjects {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.subject {
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    width: 150px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.subject:hover {
+    transform: scale(1.05);
+}
+
+.subject img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.subject p {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Botão continuar verde água */
+.continue-btn {
+    background: #76d7c4; /* Verde água */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.continue-btn:hover {
+    transform: scale(1.1);
+}

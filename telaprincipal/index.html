@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>EducaSenai</title>
+    <link rel="stylesheet" href="css.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo"><img src="img/logoEducaSenai.png" alt="Logo"></div>
+        <div class="user-info">
+            <a href="/UserScreen/index.html" class="user-avatar-link"><img id="sidebar-avatar" src="/telaprincipal/img/user-avatar.png" alt="Foto do usuário" class="user-avatar"></a>
+            <div id="sidebar-username" class="user-name">Carregando...</div>
+            <div id="sidebar-role" class="user-role">Aluno</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active"><img src="./img/casa.png" alt="Inicial"> Inicio</a></li>
+                <li><a id="logout-button" href="#"><img src="./img/sair.png" alt="Sair"> Sair</a></li>
+            </ul>
+        </nav>
+        <button class="toggle-menu" title="Contrair menu">&#9776;</button>
+    </div>
+
+    <button class="expand-sidebar" title="Abrir menu">&#9776;</button>
+
+    <div class="main-content">
+        <section class="top-bar">
+            <div class="streak-container">
+                <img id="streak-flame" src="./img/fogoOff.png" alt="Chama da ofensiva" class="streak-flame" />
+                <div class="streak-info">
+                    <div id="streak-count" class="streak-count">0</div>
+                    <div class="streak-label">Dias na ofensiva</div>
+                </div>
+            </div>
+
+            <a href="./MeusFeedbacks/index.html" class="card-link">
+                <img src="./img/feedbacks_transparente.png" alt="Feedback" class="card-link-icon">
+                <div class="card-link-label">Meus Feedbacks</div>
+            </a>
+
+            <a href="./Reunioes/index.html" class="card-link">
+                <img src="./img/reuniao-icon.svg" alt="Reunião" class="card-link-icon meeting">
+                <div class="card-link-label">Marcar Reunião</div>
+            </a>
+        </section>
+
+        <div class="course-grid">
+            <a href="/IOT/Trilha de aprendizado IOT/index.html" class="card"><img src="./img/iotnovo.png" alt="IOT"> <span>Internet Das Coisas</span></a>
+            <a href="/SOP/Trilha de aprendizado SOP/index.html" class="card"><img src="./img/sistemasoperacionais.png" alt="Sistemas Operacionais"> <span>Sistemas Operacionais</span></a>
+            <a href="/LEV/Trilha de aprendizado LEVAN/index.html" class="card"><img src="./img/backnovo.png" alt="Levantamento de Requisitos"> <span>Levantamento de Requisitos</span></a>
+            <a href="/FRONT/Trilha de aprendizado FRONT/index.html" class="card"><img src="./img/front.png" alt="Frontend"> <span>Frontend</span></a>
+            <a href="/BANCO/Trilha de aprendizado BANCO/index.html" class="card"><img src="./img/banco.png" alt="Banco de Dados"> <span>Banco de Dados</span></a>
+            <a href="/BACK/Trilha de aprendizado BACK/index.html" class="card"><img src="./img/levantamento.png" alt="Backend"> <span>Backend</span></a>
+        </div>
+    </div>
+
+    <!-- 🐬 Mascote Golfinho (um único olho alinhado) -->
+    <div id="dolphin" class="dolphin">
+      <img src="img/edufinho.png" alt="Golfinho Mascote" class="dolphin-body">
+      <!-- Apenas UM olho; ajuste left/top no CSS para alinhamento fino -->
+      <div class="eye" aria-hidden="true"><div class="pupil"></div></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

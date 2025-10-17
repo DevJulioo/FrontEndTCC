@@ -1,0 +1,22 @@
+Ordem:
+Tela inicial- informações do site (sobre, depoimentos etc)
+tela login principal-(login , cadastro) 
+tela login professor- (login professor)
+Tela eu quero aprender 1 e 2
+Meta de aprendizado
+cadastro
+Tela inicial da plataforma
+Trilha de aprendizado
+Tabela conteúdo
+Introdução video
+Introdução texto
+Tabela conteúdo
+conteudo
+Video aula
+Conclusão
+Tabela de conteudo
+Exercicios
+Tabela de conteudo
+Espaço BLUE 
+Trilha de aprendizado
+

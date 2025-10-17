@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Página de Aprendizado</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="materias.css" />
+</head>
+<body>
+  <div class="header">
+    <div class="progress-bar"></div>
+  </div>
+
+  <div class="container">
+    <!-- Retângulo centralizado -->
+    <div class="retangulo"></div>
+    
+    <h2 class="title">Eu quero aprender...</h2>
+    
+    <select class="semester-select">
+      <option value="">Selecione o semestre...</option>
+      <option value="1">Primeiro Semestre</option>
+      <option value="2">Segundo Semestre</option>
+    </select>
+    
+    <div class="subjects">
+      <div class="subject">
+        <img src="./img/iot.png" alt="IOT" />
+        <p>IOT</p>
+      </div>
+      <div class="subject">
+        <img src="./img/sistemas.png" alt="Sistema Operacionais" />
+        <p>Sistema Operacionais</p>
+      </div>
+      <div class="subject">
+        <img src="./img/levantamento.png" alt="Levantamento de Requisitos" />
+        <p>Levantamento de Requisitos</p>
+      </div>
+    </div>
+
+    <!-- Botão continuar convertido em link -->
+    <a href="/Meta de Aprendizado/index.html" class="continue-btn disabled" id="btn-continuar" tabindex="-1" aria-disabled="true">Continuar</a>
+  </div>
+
+  <script src="materias.js"></script>
+</body>
+</html>

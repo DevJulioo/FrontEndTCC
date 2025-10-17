@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trilha de Aprendizado</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Botão do menu -->
+    <header>
+        <img src="menu.png" alt="Ícone Menu" class="icone-menu" id="menuBtn">
+    </header>
+
+    <!-- Sidebar -->
+    <div id="sideNav" class="side-nav hidden">
+        <div class="side-header">
+            <img src="./logonovo.png" alt="EducaSenai">
+            <h2>EducaSenai</h2>
+        </div>
+        <div class="user-info">
+            <div class="avatar"></div>
+            <h3>Edufinho Aqua</h3>
+            <p>Aluno</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#"><span>🏠</span> Inicial</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Mascote fixo -->
+    <div class="mascote">
+        <img src="./eduvfinho no back (1).gif" alt="Mascote">
+    </div>
+
+    <!-- Trilha de aprendizado -->
+    <div class="trilha">
+        <div class="bolinha" onclick="marcar(this)">1</div>
+        <div class="bolinha" onclick="marcar(this)">2</div>
+        <div class="bolinha" onclick="marcar(this)">3</div>
+        <div class="bolinha" onclick="marcar(this)">4</div>
+        <div class="bolinha" onclick="marcar(this)">5</div>
+        <div class="bolinha" onclick="marcar(this)">6</div>
+        <div class="bolinha" onclick="marcar(this)">7</div>
+    </div>
+
+    <script>
+        function marcar(elemento) {
+            elemento.classList.toggle("marcado");
+            if (!elemento.classList.contains("marcado")) {
+                elemento.textContent = elemento.getAttribute("data-numero");
+            } else {
+                elemento.setAttribute("data-numero", elemento.textContent);
+                elemento.textContent = "";
+            }
+        }
+
+        // Alternar visibilidade do menu lateral ao clicar no botão de menu
+        document.getElementById("menuBtn").addEventListener("click", function() {
+            document.getElementById("sideNav").classList.toggle("hidden");
+        });
+    </script>
+
+</body>
+</html>

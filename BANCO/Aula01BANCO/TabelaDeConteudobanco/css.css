@@ -1,0 +1,278 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+/* Header */
+header {
+    margin-top: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 0 60px; /* espaço para o botão do menu à esquerda */
+}
+
+.iot-icon {
+    width: 90px;
+    display: block;
+}
+
+h1 {
+    font-size: 24px;
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Botão do menu */
+.icone-menu {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1300;
+    transition: opacity 0.3s ease;
+}
+
+/* Sidebar */
+.barra-lateral {
+    width: 250px;
+    height: 100vh;
+    background-color: #d8f0f5;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+    z-index: 900;
+}
+
+.barra-lateral.oculto {
+    transform: translateX(-100%);
+}
+
+.logotipo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    margin-top: 10px;
+}
+
+.logotipo img {
+    width: 90px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.info-usuario {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.link-avatar-usuario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar-usuario {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    object-fit: cover;
+    border: 2px solid #67a0b8;
+    transition: box-shadow 0.2s;
+}
+
+.link-avatar-usuario:hover .avatar-usuario {
+    box-shadow: 0 0 0 4px #bfe0ea;
+}
+
+.nome-usuario,
+.funcao-usuario {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    display: block;
+}
+
+.funcao-usuario {
+    color: #555;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+nav ul li {
+    margin: 18px 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #338089;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+nav ul li a img {
+    width: 22px;
+    height: 22px;
+    margin-right: 4px;
+    opacity: 0.8;
+}
+
+nav ul li a.ativo,
+nav ul li a:hover {
+    color: #00777b;
+}
+
+nav ul li a.ativo img,
+nav ul li a:hover img {
+    opacity: 1;
+    filter: brightness(1.3);
+}
+
+nav ul li:last-child a {
+    color: #7ba3a7;
+    font-weight: 700;
+}
+
+nav ul li:last-child a img {
+    opacity: 0.7;
+}
+
+/* Conteúdo principal */
+main {
+    margin: 80px auto 40px; /* para não ficar atrás do header */
+    max-width: 600px;
+    padding: 0 20px;
+}
+
+/* Menu tabela */
+.menu {
+    margin: 20px auto;
+    width: 100%;
+    max-width: 500px;
+    border: 3px solid #63b1b8;
+    border-radius: 12px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.menu tr {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #63b1b8;
+}
+
+.menu tr:last-child {
+    border-bottom: none;
+}
+
+.menu td {
+    flex: 1;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: white;
+    text-align: center;
+    color: black;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilo da bolinha */
+.bolinha {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #BEC5C6;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    position: relative;
+    border: 2px solid gray;
+}
+
+.bolinha.marcado {
+    background-color: #63B1B8;
+    border: 2px solid white;
+    transform: scale(1.1);
+}
+
+.bolinha.marcado::after {
+    content: "✔";
+    font-size: 16px;
+    position: absolute;
+    color: white;
+}
+
+/* Golfinho */
+.dolphin {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    width: 160px;
+}
+
+/* Ícone Home */
+.home-icon {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+.home-icon img {
+    width: 40px;
+}
+.menu-link {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    flex: 1;
+    text-align: center;
+}
+
+.menu-link:hover {
+    color: #63B1B8;
+    text-decoration: underline;
+}
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="login-container">
+        <h1>Crie sua conta</h1>
+        <div class="form-container">
+            <form id="register-form">
+                <div class="input-group">
+                    <label for="name-input">Nome Completo</label>
+                    <input type="text" id="name-input" placeholder="Nome completo" required />
+                </div>
+                <div class="input-group">
+                    <label for="email-input">Email</label>
+                    <input type="email" id="email-input" placeholder="Email" required />
+                </div>
+                <div class="input-group">
+                    <label for="password-input">Senha</label>
+                    <div class="password-container">
+                        <input type="password" id="password-input" placeholder="Senha" required />
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="mentor-code">Código de Mentor (Opcional)</label>
+                    <input type="text" id="mentor-code" placeholder="Insira se for um mentor" />
+                </div>
+                
+                <hr />
+
+                <button type="submit" class="btn-continuar">CADASTRAR</button>
+            </form>
+            
+            <p id="message"></p>
+        </div>
+    </div>
+
+    <script src="cadastro.js"></script>
+</body>
+</html>

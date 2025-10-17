@@ -1,0 +1,174 @@
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: #d8f0f5;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  position: fixed;
+  transition: width 0.3s ease, padding 0.3s ease;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+}
+
+.sidebar.collapsed {
+  width: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Logo */
+.logo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0 18px;
+}
+
+.logo img {
+  width: 90px;
+  height: auto;
+}
+
+/* User Info */
+.user-info {
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-avatar-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  object-fit: cover;
+  border: 2px solid #67a0b8;
+  transition: box-shadow 0.2s;
+}
+.user-avatar-link:hover .user-avatar {
+  box-shadow: 0 0 0 4px #bfe0ea;
+}
+
+.user-name,
+.user-role {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+.user-role {
+  color: #555;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Ocultar user info quando colapsado */
+.sidebar.collapsed .user-name,
+.sidebar.collapsed .user-role,
+.sidebar.collapsed .user-avatar-link {
+  display: none;
+}
+
+/* Menu */
+nav ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+nav ul li {
+  padding: 12px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #67a0b8;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+nav ul li a img {
+  width: 24px;
+  height: 24px;
+}
+
+nav ul li a.active {
+  color: #007b8f;
+}
+
+/* Botão contrair */
+.toggle-menu {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 28px;
+  color: #333;
+  padding: 8px;
+  border-radius: 8px;
+  z-index: 1100;
+  transition: background 0.2s ease;
+}
+.toggle-menu:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+/* Botão expandir */
+.expand-sidebar {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 32px;
+  z-index: 2000;
+  color: #333;
+  display: none;
+  border-radius: 8px;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transition: background 0.2s;
+}
+.expand-sidebar:hover {
+  background: #f0f0f0;
+}
+.expand-sidebar.show {
+  display: flex;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+  padding: 32px 40px;
+  transition: margin-left 0.3s ease;
+  margin-left: 250px;
+  min-width: 0;
+}
+.sidebar.collapsed + .main-content,
+body.menu-collapsed .main-content {
+  margin-left: 0;
+  width: 100vw;
+  padding-left: 80px;
+  padding-right: 40px;
+}

@@ -1,0 +1,500 @@
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: linear-gradient(180deg, #b0e0ea, #d8f0f5);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    position: fixed;
+    transition: width 0.3s ease, padding 0.3s ease;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+}
+
+.sidebar.collapsed {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Logo */
+.logo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    margin-top: 10px;
+}
+
+.logo img {
+    width: 90px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    transition: transform 0.3s ease;
+
+}
+.logo img:hover {
+    transform: scale(1.08);
+}
+
+/* User Info */
+.user-info {
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-avatar-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    object-fit: cover;
+    border: 2px solid #67a0b8;
+    transition: transform 0.3s ease;
+}
+.user-avatar:hover {
+    transform: scale(1.05);
+}
+
+.user-name,
+.user-role {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    display: block;
+}
+
+.user-role {
+    color: #555;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.sidebar.collapsed .user-name,
+.sidebar.collapsed .user-role,
+.sidebar.collapsed .user-avatar-link {
+    display: none;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+nav ul li {
+    padding: 12px;
+    text-align: left;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #2c505a;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 12px 16px;
+    border-radius: 10px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+nav ul li a img {
+    width: 24px;
+    height: 24px;
+}
+
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.6);
+    transform: translateX(5px);
+}
+
+
+
+nav ul li a.active {
+    color: #007b8f;
+}
+
+nav ul li a[href*="Sair"] {
+    color: #666;
+}
+
+.toggle-menu {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: transparent;  /* sem fundo */
+    border: none;
+    cursor: pointer;
+    font-size: 28px;
+    color: #333;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: none;         /* sem sombra */
+    z-index: 1100;
+    transition: transform 0.3s ease, color 0.3s ease;
+
+
+}
+
+.toggle-menu:hover {
+    color: #007b8f;
+    transform: rotate(90deg);
+}
+
+
+/* Botão expandir */
+.expand-sidebar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 32px;
+    z-index: 2000;
+    color: #3b6978;
+    display: none;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    width: 48px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.expand-sidebar:hover {
+    background: #e6f4f6;
+    transform: scale(1.1);
+}
+
+.expand-sidebar.show {
+    display: flex;
+}
+
+
+:root {
+  --bg: #f5f8fa;
+  --accent: #3b6978;
+  --accent-2: #67a0b8;
+  --card: #e6f4f6;
+  --muted: #9bbec2;
+  --white: #ffffff;
+  --gold: #d4af37;
+}
+
+/* Reset / base */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: #123;
+}
+
+/* Topbar */
+.topbar {
+  padding: 28px 36px 8px;
+  text-align: center;
+}
+.course-image { width: 64px; height: 64px; margin: 0 auto; border-radius: 12px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.course-info h1 { margin: 10px 0 0; color: var(--accent); font-size: 34px; }
+.course-sub { color: var(--muted); font-size: 14px; margin-top: 6px; }
+
+/* Main area */
+.main { display:flex; justify-content:center; padding:18px 36px 40px; }
+.list-panel { width:100%; max-width:1050px; }
+.list-container {
+  background: linear-gradient(180deg, var(--card), #e1f2f4);
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  border: 6px solid rgba(255,230,120,0.06);
+  height: 68vh;
+  min-height: 420px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Lista */
+.student-list {
+  list-style: none;
+  margin: 0;
+  padding: 12px;
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Item */
+.student-item {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background: #f0f0f0;
+  border-radius: 26px;
+  padding: 16px 18px;
+  gap: 12px;
+  border: 2px solid #559eb0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  transition: transform .12s ease;
+  cursor: pointer;
+}
+.student-item:hover { transform: translateY(-4px); }
+
+/* Left area inside list item */
+.student-left { display:flex; align-items:center; gap:14px; min-width:260px; }
+.student-score {
+  border-radius: 18px;
+  padding: 8px 12px;
+  font-weight:700;
+  color:#559eb0;
+  min-width:56px;
+  text-align:center;
+  font-size:20px;
+}
+.student-name { flex:1; font-weight:700; color:#1d3b3f; font-size:20px; }
+
+/* Actions (kept as container but empty since feedback btn removed) */
+.student-actions { display:flex; align-items:center; gap:12px; }
+
+/* Best student highlight */
+.top-student { background: var(--white) !important; border: 3px solid var(--gold) !important; box-shadow: 0 4px 10px rgba(212,175,55,0.3); }
+
+/* ================= Expanded panel styles (exact layout you asked) ================= */
+.expanded-panel {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.98);
+  border-radius: 16px;
+  padding: 20px 28px 28px 28px;
+  display: none; /* JS shows it */
+  flex-direction: column;
+  gap: 18px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+  border: 4px solid var(--gold);
+  animation: fadeInUp 0.38s ease forwards;
+}
+/* saída suave */
+.expanded-panel.hide {
+  animation: fadeOutDown 0.32s ease forwards;
+}
+
+/* close X — top-left */
+.close-btn {
+  position: absolute;
+  left: 20px;
+  top: 18px;
+  border: 0;
+  background: transparent;
+  font-size: 28px;
+  color: var(--accent-2);
+  cursor: pointer;
+}
+
+/* Header area inside panel: name centered, score below centered */
+.panel-header {
+  width: 100%;
+  text-align: center;
+  padding-top: 6px;
+}
+.panel-header .student-name-large {
+  font-size: 22px;
+  font-weight: 800;
+  color: #2b1a09;
+  margin: 4px 0;
+}
+/* nota do aluno em preto */
+.panel-header .student-score-large {
+  font-size: 24px;
+  font-weight: 800;
+  color: #559eb0;
+  margin-top: 6px;
+}
+
+/* Below header: three placeholders row */
+.progress-row {
+  width: 100%;
+  display: flex;
+  gap: 28px;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 20px;
+  padding: 10px 24px;
+}
+
+/* each placeholder (room for image + label below) */
+.progress-slot {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background: rgba(214,239,241,0.9);
+  border-radius: 20px;
+  padding: 22px 8px;
+  min-height: 150px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+  opacity: 0;
+  transform: translateY(12px);
+  animation: slotFadeIn 0.45s ease forwards;
+}
+
+/* stagger delays for nicer entrance */
+.progress-slot:nth-child(1) { animation-delay: 0.12s; }
+.progress-slot:nth-child(2) { animation-delay: 0.26s; }
+.progress-slot:nth-child(3) { animation-delay: 0.4s; }
+
+/* "image" placeholder box inside the slot */
+.img-placeholder {
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.03);
+}
+
+/* when you put <img> inside .img-placeholder it will fit */
+.img-placeholder img { width: 100%; height: 100%; object-fit: contain; border-radius: 8px; }
+
+/* the label under the placeholder (kept accent color) */
+.slot-label {
+  margin-top: 6px;
+  font-weight: 700;
+  color: var(--accent-2);
+  text-align: center;
+  font-size: 24px;
+}
+
+/* small subtext under the label if needed -> PRETO conforme pedido */
+.slot-sub {
+  font-size: 24px;
+  color: #559eb0;
+  margin-top: 4px;
+  font-weight:700
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeOutDown {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(20px); }
+}
+@keyframes slotFadeIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsivo: empilha as 3 slots em telas estreitas */
+@media (max-width:900px) {
+  .progress-row {
+    flex-direction: column;
+    gap: 18px;
+    padding: 8px 6px;
+  }
+  .progress-slot { width: 100%; }
+}
+
+/* =================================================================== */
+/*       CÓDIGO UNIVERSAL PARA O MENU E LAYOUT (COLE ISTO)       */
+/* =================================================================== */
+
+/* PASSO 1: O body controla o espaço para o menu */
+body {
+    /* Esta regra cria o espaço para o menu quando ele está aberto */
+    padding-left: 250px; 
+    transition: padding-left 0.4s ease-in-out;
+}
+
+/* PASSO 2: O menu fica fixo na posição correta */
+.sidebar {
+    width: 250px; /* Largura do seu menu */
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transform: translateX(0); /* Posição inicial (aberto) */
+    transition: transform 0.4s ease-in-out;
+    z-index: 1000;
+    /* Seus outros estilos de sidebar (background, etc.) continuam aqui */
+}
+
+/* PASSO 3: O conteúdo principal (seja qual for) se centraliza sozinho */
+/* Esta regra universal funciona para TODAS as suas telas */
+main.wrap, 
+.main-content, 
+.main,
+.content-wrapper {
+    width: 100%;
+    max-width: 1100px; /* O limite de largura do seu layout */
+    margin-inline: auto; /* A MÁGICA QUE CENTRALIZA O CONTEÚDO */
+    /* Removemos o 'margin-left' que causava o problema */
+}
+
+/* Botão de abrir o menu (escondido por padrão) */
+.expand-sidebar {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1100;
+    /* Seus estilos de botão aqui... */
+    background: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- O ESTADO FINAL (QUANDO O JAVASCRIPT FECHA O MENU) --- */
+
+/* Esconde o menu para a esquerda */
+body.menu-collapsed .sidebar {
+    transform: translateX(-100%);
+}
+
+/* Remove o espaçamento do body, fazendo o conteúdo se centralizar na tela inteira */
+body.menu-collapsed {
+    padding-left: 0;
+}
+
+/* Mostra o botão de abrir o menu */
+body.menu-collapsed .expand-sidebar {
+    display: flex;
+}
+
+/* =================================================================== */
+/*                   FIM DA LÓGICA DO MENU                     */
+/* =================================================================== */
+
+/* O resto do seu CSS (cores, fontes, etc.) continua normalmente abaixo */

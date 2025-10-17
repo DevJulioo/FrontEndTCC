@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questões</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  
+    <div class="container">
+        <h2>Responda as questões</h2>
+
+        <div id="questionsContainer">
+            <!-- Primeira questão -->
+            <div class="question">
+                <p>Pergunta? Pergunta? Pergunta?</p>
+                <div class="options">
+                    <label class="option" data-question="q1" data-value="A">
+                        <span class="circle">A</span>
+                        <span class="text">Opção A</span>
+                    </label>
+                    <label class="option" data-question="q1" data-value="B">
+                        <span class="circle">B</span>
+                        <span class="text">Opção B</span>
+                    </label>
+                    <label class="option" data-question="q1" data-value="C">
+                        <span class="circle">C</span>
+                        <span class="text">Opção C</span>
+                    </label>
+                    <label class="option" data-question="q1" data-value="D">
+                        <span class="circle">D</span>
+                        <span class="text">Opção D</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Segunda questão -->
+            <div class="question">
+                <p>Pergunta? Pergunta? Pergunta?</p>
+                <div class="question-image">
+                    <img src="imagem.png" alt="Imagem da questão">
+                </div>
+                <div class="options">
+                    <label class="option" data-question="q2" data-value="A">
+                        <span class="circle">A</span>
+                        <span class="text">Opção A</span>
+                    </label>
+                    <label class="option" data-question="q2" data-value="B">
+                        <span class="circle">B</span>
+                        <span class="text">Opção B</span>
+                    </label>
+                    <label class="option" data-question="q2" data-value="C">
+                        <span class="circle">C</span>
+                        <span class="text">Opção C</span>
+                    </label>
+                    <label class="option" data-question="q2" data-value="D">
+                        <span class="circle">D</span>
+                        <span class="text">Opção D</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <button id="sendButton">ENVIAR</button>
+    </div>
+
+    <!-- Faixa de Resultado -->
+    <div id="resultBanner" class="result-banner">
+        <img id="edufinho" src="edufinhobigode.png" alt="Edufinho">
+        <h3 id="nota">NOTA AQUI</h3>
+        <p id="recado">Recado personalizado de acordo com a nota</p>
+        <button id="completeResultButton">Ver resultado completo!</button>
+    </div>
+    
+    <script src="script.js"></script>
+
+ 
+</body>
+</html>

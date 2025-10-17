@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Trilha de Aprendizado - FRONT</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <header>
+        <img src="menu.png" alt="Ícone Menu" class="icone-menu" id="menuBtn" />
+    </header>
+
+    <div id="sideNav" class="side-nav hidden">
+        <div class="logo">
+            <img src="logoEducaSenai.png" alt="Logo" />
+        </div>
+        <div class="user-info">
+            <a href="/UserScreen/index.html" class="user-avatar-link">
+                <img id="sidebar-avatar" src="/FRONT/Trilha de aprendizado FRONT/user-avatar.png" alt="Foto do usuário" class="user-avatar" />
+            </a>
+            <div id="sidebar-username" class="user-name">Carregando...</div>
+            <div id="sidebar-role" class="user-role">...</div>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/telaprincipal/index.html" class="active">
+                        <img src="casa.png" alt="Inicial" />
+                        Início
+                    </a>
+                </li>
+                <li>
+                    <a id="logout-button" href="#">
+                        <img src="sair.png" alt="Sair" />
+                        Sair
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="mascote">
+        <img src="./eduvfinho no back (1).gif" alt="Mascote" />
+    </div>
+
+    <div class="trilha">
+        <div class="bolinha" data-numero="1">1</div>
+        <div class="bolinha" data-numero="2">2</div>
+        <div class="bolinha" data-numero="3">3</div>
+        <div class="bolinha" data-numero="4">4</div>
+        <div class="bolinha" data-numero="5">5</div>
+        <div class="bolinha" data-numero="6">6</div>
+        <div class="bolinha" data-numero="7">7</div>
+        <button id="btnReset" class="btn-reset" disabled>Do Início</button>
+    </div>
+
+    <div id="waveEffect">
+        <svg class="wave-svg" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,40 Q180,0 360,40 T720,40 T1080,40 T1440,40 V80 H0 Z" fill="#338089"/>
+        </svg>
+    </div>
+
+    <script src="script.js"></script>
+    <audio id="bubbleSound" src="bolhas.mp3" preload="auto"></audio>
+    
+</body>
+</html>

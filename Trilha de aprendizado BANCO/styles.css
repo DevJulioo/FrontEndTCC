@@ -1,0 +1,158 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background: url('./GKS\ \(1\).jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+}
+
+/* Sidebar */
+.side-nav {
+    width: 250px;
+    height: 100vh;
+    background-color: #d8f0f5;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.side-nav.hidden {
+    transform: translateX(-100%);
+}
+
+.side-header {
+    text-align: center;
+}
+
+.side-header img {
+    width: 50px;
+}
+
+.user-info {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    background-color: #6b8992;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 15px 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #004d56;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+nav ul li a.active {
+    font-weight: bold;
+}
+
+/* Header */
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 70px;
+    z-index: 10;
+    background: transparent;
+}
+
+/* Ícone do menu menor */
+.icone-menu {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+/* Mascote no canto direito */
+.mascote {
+    position: fixed;
+    right: 10px;
+    bottom: 0;
+    width: 300px;
+    height: auto;
+}
+
+.mascote img {
+    width: 100%;
+    height: auto;
+}
+
+/* Trilha de aprendizado */
+.trilha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 100px;
+}
+
+.bolinha {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #BEC5C6;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    position: relative;
+}
+
+.bolinha:nth-child(odd) {
+    align-self: flex-start;
+    margin-left: 100px;
+}
+
+.bolinha:nth-child(even) {
+    align-self: flex-end;
+    margin-right: 100px;
+}
+
+/* Quando a bolinha é clicada */
+.bolinha.marcado {
+    background-color: #63B1B8;
+    color: white;
+    transform: scale(1.1);
+    border: 4px solid white;
+}
+
+.bolinha.marcado::after {
+    content: "✔";
+    font-size: 40px;
+    position: absolute;
+    color: white;
+}
+

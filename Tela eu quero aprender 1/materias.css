@@ -1,0 +1,84 @@
+/* Barra de progresso cinza no header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background-color: #ddd; /* cinza claro */
+    z-index: 1000;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: #63b1b8; /* cor para futuro uso se quiser animar */
+    border-radius: 10px;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  /* Espaço para o conteúdo não ficar atrás do header fixo */
+  body {
+    padding-top: 20px;
+  }
+  
+  /* Estilos para matérias e botão */
+  
+  .subject {
+    cursor: pointer;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    width: 150px;
+    background-color: #fff;
+    transition: border-color 0.3s, border-width 0.3s;
+    user-select: none;
+    text-align: center;
+    margin: 10px;
+    display: inline-block;
+  }
+  
+  .subject.selecionada {
+    border-color: #63b1b8;
+    border-width: 4px;
+  }
+  
+  .subject img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+  }
+  
+  .subject p {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .continue-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #63b1b8;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    margin-top: 20px;
+    text-decoration: none;
+    text-align: center;
+  }
+  
+  /* Hover só se não estiver desabilitado */
+  .continue-btn:not(.disabled):hover {
+    transform: scale(1.05);
+  }
+  
+  /* Estilo para botão desabilitado */
+  .continue-btn.disabled {
+    background-color: #a0c7cb;
+    cursor: not-allowed;
+    pointer-events: none;
+    transform: none !important;
+  }
+  

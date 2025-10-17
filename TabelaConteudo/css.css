@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+header {
+    margin-top: 20px;
+}
+
+.iot-icon {
+    width: 90px;
+    display: block;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 24px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.menu {
+    margin: 20px auto;
+    width: 500px;
+    border: 3px solid #63b1b8;
+    border-radius: 12px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.menu tr {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #63b1b8;
+}
+
+.menu tr:last-child {
+    border-bottom: none;
+}
+
+.menu td {
+    flex: 1;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: white;
+    text-align: center;
+    color: black;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilo da bolinha */
+.bolinha {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #BEC5C6;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    position: relative;
+    border: 2px solid gray;
+}
+
+.bolinha.marcado {
+    background-color: #63B1B8;
+    border: 2px solid white;
+    transform: scale(1.1);
+}
+
+.bolinha.marcado::after {
+    content: "✔";
+    font-size: 16px;
+    position: absolute;
+    color: white;
+}
+
+.dolphin {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    width: 160px;
+}
+
+.home-icon {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+.home-icon img {
+    width: 40px;
+}

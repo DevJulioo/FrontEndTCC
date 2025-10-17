@@ -1,0 +1,531 @@
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: linear-gradient(180deg, #b0e0ea, #d8f0f5);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    position: fixed;
+    transition: width 0.3s ease, padding 0.3s ease;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+}
+
+.sidebar.collapsed {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Logo */
+.logo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    margin-top: 10px;
+}
+
+.logo img {
+    width: 90px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    transition: transform 0.3s ease;
+
+}
+.logo img:hover {
+    transform: scale(1.08);
+}
+
+/* User Info */
+.user-info {
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-avatar-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    object-fit: cover;
+    border: 2px solid #67a0b8;
+    transition: transform 0.3s ease;
+}
+.user-avatar:hover {
+    transform: scale(1.05);
+}
+
+.user-name,
+.user-role {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    display: block;
+}
+
+.user-role {
+    color: #555;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.sidebar.collapsed .user-name,
+.sidebar.collapsed .user-role,
+.sidebar.collapsed .user-avatar-link {
+    display: none;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+nav ul li {
+    padding: 12px;
+    text-align: left;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #2c505a;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 12px 16px;
+    border-radius: 10px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+nav ul li a img {
+    width: 24px;
+    height: 24px;
+}
+
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.6);
+    transform: translateX(5px);
+}
+
+
+
+nav ul li a.active {
+    color: #007b8f;
+}
+
+nav ul li a[href*="Sair"] {
+    color: #666;
+}
+
+.toggle-menu {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: transparent;  /* sem fundo */
+    border: none;
+    cursor: pointer;
+    font-size: 28px;
+    color: #333;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: none;         /* sem sombra */
+    z-index: 1100;
+    transition: transform 0.3s ease, color 0.3s ease;
+
+
+}
+
+.toggle-menu:hover {
+    color: #007b8f;
+    transform: rotate(90deg);
+}
+
+
+/* Botão expandir */
+.expand-sidebar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 32px;
+    z-index: 2000;
+    color: #3b6978;
+    display: none;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    width: 48px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.expand-sidebar:hover {
+    background: #e6f4f6;
+    transform: scale(1.1);
+}
+
+.expand-sidebar.show {
+    display: flex;
+}
+
+
+
+
+:root {
+  --bg: #f5f8fa;
+  --accent: #3b6978;
+  --accent-2: #67a0b8;
+  --card: #e6f4f6;
+  --muted: #9bbec2;
+  --white: #ffffff;
+  --gold: #d4af37;
+}
+
+/* Reset / base */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: #123;
+}
+
+/* Topbar */
+.topbar {
+  padding: 28px 36px 8px;
+  text-align: center;
+}
+.course-image {
+  width: 64px; height: 64px; margin: 0 auto;
+  border-radius: 12px; display:flex; align-items:center;
+  justify-content:center; overflow:hidden;
+}
+.course-info h1 {
+  margin: 10px 0 0;
+  color: var(--accent);
+  font-size: 34px;
+}
+
+/* Main area */
+.main {
+  display:flex;
+  justify-content:center;
+  padding:18px 36px 40px;
+}
+.list-panel { width:100%; max-width:1050px; }
+.list-container {
+  background: linear-gradient(180deg, var(--card), #e1f2f4);
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  border: 6px solid rgba(255,230,120,0.06);
+  height: 68vh;
+  min-height: 420px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Lista */
+.student-list {
+  list-style: none;
+  margin: 0;
+  padding: 12px;
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Item */
+.student-item {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background: #f0f0f0;
+  border-radius: 26px;
+  padding: 16px 18px;
+  gap: 12px;
+  border: 2px solid #559eb0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  transition: transform .12s ease;
+  cursor: pointer;
+}
+.student-item:hover { transform: translateY(-4px); }
+
+/* Left area inside list item */
+.student-left { display:flex; align-items:center; gap:14px; min-width:260px; }
+.student-score {
+  border-radius: 18px;
+  padding: 8px 12px;
+  font-weight:700;
+  color:#559eb0;
+  min-width:56px;
+  text-align:center;
+  font-size:20px;
+}
+.student-name {
+  flex:1;
+  font-weight:700;
+  color:#1d3b3f;
+  font-size:20px;
+}
+
+/* Actions (vazio, sem botão feedback) */
+.student-actions { display:flex; align-items:center; gap:12px; }
+
+/* Best student highlight */
+.top-student {
+  background: var(--white) !important;
+  border: 3px solid var(--gold) !important;
+  box-shadow: 0 4px 10px rgba(212,175,55,0.3);
+}
+
+/* ================= Expanded panel styles ================= */
+.expanded-panel {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.98);
+  border-radius: 16px;
+  padding: 20px 28px 28px 28px;
+  display: none; /* JS shows it */
+  flex-direction: column;
+  gap: 18px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+  border: 4px solid var(--gold);
+  animation: fadeInUp 0.38s ease forwards;
+}
+/* saída suave */
+.expanded-panel.hide {
+  animation: fadeOutDown 0.32s ease forwards;
+}
+
+/* close X — top-left */
+.close-btn {
+  position: absolute;
+  left: 20px;
+  top: 18px;
+  border: 0;
+  background: transparent;
+  font-size: 28px;
+  color: var(--accent-2);
+  cursor: pointer;
+}
+
+/* Header area inside panel */
+.panel-header {
+  width: 100%;
+  text-align: center;
+  padding-top: 6px;
+}
+.panel-header .student-name-large {
+  font-size: 22px;
+  font-weight: 800;
+  color: #2b1a09;
+  margin: 4px 0;
+}
+.panel-header .student-score-large {
+  font-size: 20px;
+  font-weight: 800;
+  color: #000; /* preto */
+  margin-top: 6px;
+}
+
+/* ================= Feedback form styling ================= */
+.feedback-form {
+  width: 100%;
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: stretch;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.feedback-form textarea {
+  min-height: 140px;
+  resize: none; /* agora não pode expandir */
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.1);
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.5;
+  background: #fff;
+  color: #111;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+.feedback-form textarea:focus {
+  border: 1px solid var(--accent-2);
+  box-shadow: 0 0 0 3px rgba(103,160,184,0.25);
+  outline: none;
+}
+
+.feedback-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+.send-btn {
+  background: linear-gradient(180deg,#67a0b8,#3b6978);
+  color: #fff;
+  border: 0;
+  padding: 11px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.1s ease, opacity 0.2s ease;
+}
+.send-btn:hover { opacity: 0.9; }
+.send-btn:active { transform: translateY(1px); }
+
+.clear-btn {
+  background: transparent;
+  color: #333;
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+.clear-btn:hover { background: rgba(0,0,0,0.04); }
+
+/* confirmation message */
+.feedback-confirm {
+  display: none;
+  background: rgba(45,160,130,0.1);
+  color: #0b3b36;
+  border: 1px solid rgba(45,160,130,0.18);
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+  animation: fadeInUp 0.35s ease forwards;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeOutDown {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(20px); }
+}
+
+/* Responsivo */
+@media (max-width:900px) {
+  .feedback-form textarea { min-height: 100px; }
+}
+
+/* =================================================================== */
+/* A SOLUÇÃO DEFINITIVA PARA O MENU 👇                 */
+/* =================================================================== */
+
+/* PASSO 1: O body agora controla o espaço para o menu */
+body {
+    /* REMOVA o 'display: flex' se você o tinha aqui */
+    padding-left: 250px; /* <--- CRIA O ESPAÇO PARA O MENU ABERTO */
+    transition: padding-left 0.4s ease-in-out;
+}
+
+/* PASSO 2: O menu fica fixo na posição correta */
+.sidebar {
+    width: 250px; /* Largura do seu menu */
+    height: 100vh;
+    position: fixed; /* Mantém o menu fixo na lateral */
+    left: 0;
+    top: 0;
+    transform: translateX(0); /* Posição inicial */
+    transition: transform 0.4s ease-in-out;
+    z-index: 1000;
+    /* Seus outros estilos de sidebar (background, etc.) continuam aqui */
+}
+
+/* PASSO 3: O conteúdo principal agora se centraliza sozinho */
+/* Esta regra agora se aplica a TODAS as suas telas */
+.wrap, .main-content, .main {
+    width: 100%;
+    max-width: 1100px; /* Seu limite de largura máxima */
+    margin-inline: auto; /* <--- A MÁGICA QUE CENTRALIZA O CONTEÚDO */
+    /* Remova qualquer 'margin-left' que você tenha colocado nessas classes antes */
+}
+
+
+/* Botão de abrir o menu (fica escondido por padrão) */
+.expand-sidebar {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1100;
+    /* Seus estilos do botão aqui... */
+    background: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- O ESTADO FINAL (QUANDO O MENU FECHA) --- */
+
+/* Esconde o menu para a esquerda */
+body.menu-collapsed .sidebar {
+    transform: translateX(-100%);
+}
+
+/* Remove o espaçamento do body, permitindo que o conteúdo se centralize na tela inteira */
+body.menu-collapsed {
+    padding-left: 0;
+}
+
+/* Mostra o botão de abrir o menu */
+body.menu-collapsed .expand-sidebar {
+    display: flex;
+}
+
+/* =================================================================== */
+/* FIM DA LÓGICA DO MENU                                               */
+/* =================================================================== */
+
+/* O resto do seu CSS continua aqui (logo, user-info, nav ul, etc.) */
+
+/* Logo */
+.logo {
+    width: 100%;
+    /* ... e assim por diante com o resto do seu arquivo de estilo ... */
+}

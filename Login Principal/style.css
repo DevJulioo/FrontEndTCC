@@ -1,0 +1,156 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #63b1b8, #004d40);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.layout {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    height: 80vh;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+/* Lado Esquerdo */
+.left-side {
+    flex: 1;
+    background: linear-gradient(to bottom right, #63b1b8, #63b1b8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+
+.left-side .info {
+    max-width: 80%;
+}
+
+.logo {
+    width: 250px; /* aumenta a largura para 250px, ajuste conforme desejar */
+    height: auto; /* mantém a proporção da imagem */
+    margin-bottom: 20px;
+  }
+  
+
+.left-side h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.left-side p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* Lado Direito */
+.right-side {
+    flex: 1;
+    background: #f7f7f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.login-section {
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    color: #333;
+}
+
+.login-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+form input:focus {
+    border-color: #63b1b8;
+}
+
+.btn {
+    background: #63b1b8;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #63b1b8;
+}
+
+.cta-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #63b1b8;
+    border: 2px solid #63b1b8;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-secondary:hover {
+    background: #63b1b8;
+    color: white;
+}
+
+#message {
+    margin-top: 15px;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    transition: color 0.3s;
+}
+
+.error-message {
+    color: #D8000C; /* Vermelho para erro */
+}
+
+.success-message {
+    color: #28a745; /* Verde para sucesso */
+}

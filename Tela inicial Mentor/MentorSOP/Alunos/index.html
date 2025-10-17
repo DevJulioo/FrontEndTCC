@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Alunos - Mentor SOP</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="sidebar">
+        <button class="toggle-menu" title="Contrair menu">&#9776;</button>
+        <div class="logo">
+            <img src="/Tela inicial Mentor/MentorIOT/Alunos/logoEducaSenai.png" alt="Logo">
+        </div>
+        <div class="user-info">
+            <a href="/Tela inicial Mentor/UserScreenMentor/index.html" class="user-avatar-link">
+                <img id="sidebar-avatar" src="/Tela inicial Mentor/MentorIOT/Alunos/user-avatar.png" alt="Foto do usuário" class="user-avatar">
+            </a>
+            <div id="sidebar-username" class="user-name">Carregando...</div>
+            <div id="sidebar-role" class="user-role">...</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/Tela inicial Mentor/index.html" class="active"><img src="/Tela inicial Mentor/MentorIOT/Alunos/casa.png" alt="Inicial"> Inicio</a></li>
+                <li><a id="logout-button" href="#"><img src="/Tela inicial Mentor/MentorIOT/Alunos/sair.png" alt="Sair"> Sair</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <button class="expand-sidebar" title="Abrir menu">&#9776;</button>
+
+    <div class="content-wrapper">
+        <header class="topbar">
+            <div class="course-image" aria-hidden="true">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="1" y="1" width="22" height="22" rx="5" fill="#e6f4f6"/>
+                    <g transform="translate(3,3)" fill="#3b6978">
+                        <rect x="0" y="0" width="4" height="10" rx="1" fill="#67a0b8"/>
+                        <rect x="5" y="0" width="4" height="6" rx="1" fill="#2b8a98"/>
+                        <rect x="10" y="0" width="4" height="10" rx="1" fill="#81c0c6"/>
+                        <rect x="0" y="11" width="14" height="3" rx="1" fill="#a9e0e3"/>
+                    </g>
+                </svg>
+            </div>
+            <div class="course-info">
+                <h1>Internet Das Coisas</h1>
+            </div>
+        </header>
+
+        <main class="main">
+            <section class="list-panel" aria-label="Lista de Alunos">
+                <div class="list-container" id="listContainer">
+                    <ul id="studentList" class="student-list" role="list"></ul>
+
+                    <div id="expandedPanel" class="expanded-panel" aria-hidden="true">
+                        <button id="closeExpanded" class="close-btn" title="Voltar à lista">×</button>
+                        <div id="expandedContent" class="expanded-content"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
