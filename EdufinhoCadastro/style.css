@@ -7,9 +7,9 @@ body {
     align-items: center;
     min-height: 100vh;
     padding-top: 40px; /* espaço para a barra fixa */
-  }
-  
-  .header {
+}
+ 
+.header {
     position: fixed;
     top: 0;
     left: 0;
@@ -17,25 +17,31 @@ body {
     height: 20px;
     background-color: #ddd; /* cinza claro */
     z-index: 1000;
-  }
-  
-  .progress-bar {
+}
+ 
+.progress-bar {
     height: 100%;
     width: 100%;
     background-color: #ddd;
     border-radius: 10px;
-    overflow: hidden;
-  }
-  
-  .progress {
+    overflow: hidden; /* Importante para o raio funcionar no filho */
+}
+ 
+.progress {
     height: 100%;
     background-color: #63b1b8;
-    border-radius: 10px 0 0 10px;
-    width: 100%; /* preenchimento 3/3 */
+    
+    /* CORREÇÃO VISUAL: 
+      O raio deve ser o mesmo do pai (ou nenhum, se o pai tiver overflow: hidden).
+      Vamos garantir que seja 10px para cobrir 100% corretamente.
+    */
+    border-radius: 10px; 
+    
+    width: 100%; /* preenchimento 4/4 */
     transition: width 0.3s ease-in-out;
-  }
-  
-  .container {
+}
+ 
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -43,9 +49,9 @@ body {
     min-height: 80vh;
     text-align: center;
     padding: 20px;
-  }
-  
-  .speech-bubble {
+}
+ 
+.speech-bubble {
     position: relative;
     background: #fff;
     border: 3px solid #e1e1e1;
@@ -56,9 +62,9 @@ body {
     color: #222;
     max-width: 320px;
     user-select: none;
-  }
-  
-  .speech-bubble::after {
+}
+ 
+.speech-bubble::after {
     content: '';
     position: absolute;
     bottom: -20px;
@@ -69,9 +75,9 @@ body {
     border-color: #e1e1e1 transparent transparent transparent;
     display: block;
     width: 0;
-  }
-  
-  .speech-bubble::before {
+}
+ 
+.speech-bubble::before {
     content: '';
     position: absolute;
     bottom: -17px;
@@ -82,16 +88,16 @@ body {
     border-color: #fff transparent transparent transparent;
     display: block;
     width: 0;
-  }
-  
-  .dolphin-img {
+}
+ 
+.dolphin-img {
     width: 200px;
     margin: 10px 0 30px 0;
     display: block;
     user-select: none;
-  }
-  
-  .continue-btn {
+}
+ 
+.continue-btn {
     padding: 10px 30px;
     border: none;
     border-radius: 6px;
@@ -105,10 +111,9 @@ body {
     margin-top: 5px;
     user-select: none;
     display: inline-block;
-  }
-  
-  .continue-btn:hover {
+}
+ 
+.continue-btn:hover {
     background-color: #4a8d98;
     transform: scale(1.04);
-  }
-  
+}

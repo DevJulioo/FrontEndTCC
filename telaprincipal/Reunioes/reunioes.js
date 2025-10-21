@@ -18,23 +18,21 @@ async function loadSidebarData() {
         const response = await fetch('https://educasenai-api.onrender.com/api/users/me', { headers });
         if (!response.ok) throw new Error('Falha na autenticação.');
         const user = await response.json();
-        
+
         document.getElementById('sidebar-username').textContent = user.name;
         document.getElementById('sidebar-role').textContent = user.role;
         const sidebarAvatar = document.getElementById('sidebar-avatar');
 
-        if (user.avatarUrl) { 
-            sidebarAvatar.src = `https://educasenai-api.onrender.com${user.avatarUrl}`; 
+        if (user.avatarUrl) {
+            sidebarAvatar.src = `https://educasenai-api.onrender.com${user.avatarUrl}`;
         }
-        
+
     } catch (error) {
         console.error('Erro ao carregar dados do usuário:', error);
+        // Considerar redirecionar ou mostrar erro aqui se o sidebar for essencial
     }
 }
 
-// =======================================================
-// SEU CÓDIGO ORIGINAL (INTACTO) 👇
-// =======================================================
 async function loadInitialData() {
     await loadMentors();
     await loadMeetings();
@@ -56,7 +54,8 @@ async function loadMentors() {
         });
     } catch (error) {
         console.error("Erro ao carregar mentores:", error);
-        alert("Erro: Não foi possível carregar os mentores.");
+        // Mantendo Toastify para erros, pois são menos críticos se falharem
+        showToast("Erro: Não foi possível carregar os mentores.", "error");
     }
 }
 
@@ -69,7 +68,7 @@ async function loadMeetings() {
         renderCalendar();
     } catch (error) {
         console.error("Erro ao carregar reuniões:", error);
-        alert("Erro: Não foi possível carregar suas solicitações.");
+        showToast("Erro: Não foi possível carregar suas solicitações.", "error");
     }
 }
 
@@ -150,22 +149,17 @@ function setupEventListeners() {
         });
     }
 
-    // =======================================================
-    // BOTÃO DE LOGOUT ADICIONADO DE VOLTA AQUI 👇
-    // =======================================================
     const logoutButton = document.getElementById('logout-button');
     if (logoutButton) {
         logoutButton.addEventListener('click', (e) => {
             e.preventDefault();
             sessionStorage.removeItem('authToken');
+            // Usando alert para logout também, para consistência
             alert('Você foi desconectado.');
             window.location.href = '/TelaInicial/index.html';
         });
     }
-    // =======================================================
-    // FIM DA CORREÇÃO
-    // =======================================================
-    
+
     const toggles = document.querySelectorAll('.toggle-group .toggle');
     toggles.forEach(toggle => {
         toggle.addEventListener('click', () => {
@@ -173,6 +167,7 @@ function setupEventListeners() {
             toggle.classList.add('active');
         });
     });
+
     const dateInput = document.getElementById('date-input');
     if (dateInput) {
         const today = new Date();
@@ -181,18 +176,27 @@ function setupEventListeners() {
         const dd = String(today.getDate()).padStart(2, '0');
         dateInput.min = `${yyyy}-${mm}-${dd}`;
     }
+
     document.getElementById('prev-month')?.addEventListener('click', () => {
         currentDate.setMonth(currentDate.getMonth() - 1);
         renderCalendar();
     });
+
     document.getElementById('next-month')?.addEventListener('click', () => {
         currentDate.setMonth(currentDate.getMonth() + 1);
         renderCalendar();
     });
+
     const form = document.getElementById('request-form');
     if (form) {
         form.addEventListener('submit', async (event) => {
             event.preventDefault();
+
+            const submitButton = form.querySelector('.btn.primary');
+
+            submitButton.disabled = true;
+            submitButton.textContent = "Solicitando...";
+
             const modalidadeSelecionada = document.querySelector('input[name="modalidade"]:checked');
             const requestData = {
                 mentorId: document.getElementById('mentor-select').value,
@@ -202,10 +206,15 @@ function setupEventListeners() {
                 assunto: document.getElementById('subject-input').value,
                 observacoes: document.getElementById('notes-input').value,
             };
+
             if (!requestData.mentorId || !requestData.data || !requestData.hora || !requestData.assunto) {
+                // Usando alert para erros de validação também
                 alert("Erro: Preencha todos os campos obrigatórios.");
+                submitButton.disabled = false;
+                submitButton.textContent = "Solicitar reunião";
                 return;
             }
+
             try {
                 const response = await fetch('https://educasenai-api.onrender.com/api/reunioes', {
                     method: 'POST',
@@ -216,14 +225,53 @@ function setupEventListeners() {
                     const errorData = await response.json().catch(() => ({}));
                     throw new Error(errorData.message || "Falha ao solicitar reunião.");
                 }
-                alert("Sucesso! Sua solicitação de reunião foi enviada.");
+
+                // =======================================================
+                // ALTERAÇÃO: Voltando a usar alert() para sucesso
+                // =======================================================
+                alert("Reunião solicitada!");
+                // =======================================================
+                // FIM DA ALTERAÇÃO
+                // =======================================================
+
                 form.reset();
-                document.querySelector('.toggle[data-value="Online"]')?.classList.add('active');
-                document.querySelector('.toggle[data-value="Presencial"]')?.classList.remove('active');
+
+                toggles.forEach(t => t.classList.remove('active'));
+                form.querySelector('input[value="Online"]').parentElement.classList.add('active');
+
                 loadMeetings();
+
             } catch (error) {
+                // Usando alert para erros da API também
                 alert("Erro: " + error.message);
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = "Solicitar reunião";
             }
         });
+    }
+}
+
+/**
+ * Função helper para mostrar notificações Toastify (mantida para outros erros).
+ * type = 'success', 'error', ou 'info'
+ */
+function showToast(message, type = "info") {
+    // Verifica se Toastify está carregado antes de usar
+    if (typeof Toastify === 'function') {
+        const backgroundColor = type === "error" ? "#ff3860" : (type === "success" ? "#23d160" : "#3e8ed0");
+        Toastify({
+            text: message,
+            duration: 3000,
+            close: true,
+            gravity: "top",
+            position: "right",
+            backgroundColor: backgroundColor,
+            stopOnFocus: true,
+        }).showToast();
+    } else {
+        // Fallback para alert se Toastify não carregou
+        console.warn("Toastify não carregado. Usando alert como fallback.");
+        alert(message);
     }
 }

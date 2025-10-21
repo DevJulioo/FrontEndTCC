@@ -8,61 +8,46 @@
 </head>
 <body>
 
-    <!-- Botão do menu -->
     <header>
-        <img src="menu.png" alt="Ícone Menu" class="icone-menu" id="menuBtn">
+        <img src="./img/menu.png" alt="Ícone Menu" class="icone-menu" id="menuBtn">
     </header>
 
-    <!-- Sidebar -->
     <div id="sideNav" class="side-nav hidden">
         <div class="side-header">
-            <img src="./logonovo.png" alt="EducaSenai">
+            <img src="./img/logoEducaSenai.png" alt="EducaSenai">
             <h2>EducaSenai</h2>
         </div>
         <div class="user-info">
-            <div class="avatar"></div>
-            <h3>Edufinho Aqua</h3>
-            <p>Aluno</p>
+            <a href="/UserScreen/index.html" class="user-avatar-link">
+                 <img id="sidebar-avatar" src="./img/user-avatar.png" alt="Foto do usuário" class="user-avatar">
+            </a>
+            <h3 id="sidebar-username">Carregando...</h3>
+            <p id="sidebar-role">...</p>
         </div>
         <nav>
             <ul>
-                <li><a href="#"><span>🏠</span> Inicial</a></li>
+                <li><a href="/telaprincipal/index.html" class="active"><span>🏠</span> Inicial</a></li>
+                <li><a id="logout-button" href="#"><span><img src="./img/sair.png" alt="" style="width: 1em; vertical-align: middle;"></span> Sair</a></li>
             </ul>
         </nav>
     </div>
 
-    <!-- Mascote fixo -->
     <div class="mascote">
-        <img src="./eduvfinho no back (1).gif" alt="Mascote">
+        <img src="./img/eduvfinho no back (1).gif" alt="Mascote">
     </div>
 
-    <!-- Trilha de aprendizado -->
     <div class="trilha">
-        <div class="bolinha" onclick="marcar(this)">1</div>
-        <div class="bolinha" onclick="marcar(this)">2</div>
-        <div class="bolinha" onclick="marcar(this)">3</div>
-        <div class="bolinha" onclick="marcar(this)">4</div>
-        <div class="bolinha" onclick="marcar(this)">5</div>
-        <div class="bolinha" onclick="marcar(this)">6</div>
-        <div class="bolinha" onclick="marcar(this)">7</div>
+        <div class="bolinha" data-numero="1">1</div>
+        <div class="bolinha" data-numero="2">2</div>
+        <div class="bolinha" data-numero="3">3</div>
+        <div class="bolinha" data-numero="4">4</div>
+        <div class="bolinha" data-numero="5">5</div>
+        <div class="bolinha" data-numero="6">6</div>
+        <div class="bolinha" data-numero="7">7</div>
+        <button id="btnReset" class="btn-reset" disabled>Reiniciar Trilha</button>
     </div>
 
-    <script>
-        function marcar(elemento) {
-            elemento.classList.toggle("marcado");
-            if (!elemento.classList.contains("marcado")) {
-                elemento.textContent = elemento.getAttribute("data-numero");
-            } else {
-                elemento.setAttribute("data-numero", elemento.textContent);
-                elemento.textContent = "";
-            }
-        }
-
-        // Alternar visibilidade do menu lateral ao clicar no botão de menu
-        document.getElementById("menuBtn").addEventListener("click", function() {
-            document.getElementById("sideNav").classList.toggle("hidden");
-        });
-    </script>
+    <script src="script.js"></script>
 
 </body>
 </html>

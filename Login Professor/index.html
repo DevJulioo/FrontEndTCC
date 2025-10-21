@@ -1,32 +1,98 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login do Mentor</title>
-  <link rel="stylesheet" href="src/styles/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login do Mentor</title>
+    <link rel="stylesheet" href="src/styles/style.css">
+
+    <style>
+        .password-container {
+            position: relative;
+            width: 100%;
+        }
+        .password-container input {
+            width: 100%;
+            padding-right: 40px; 
+            box-sizing: border-box; 
+        }
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        /*
+ * Container para o botão "Sou Aluno".
+ * (Isto substitui o 'style="margin-top: 15px;"' do seu HTML)
+ */
+.cta-buttons {
+    width: 100%;
+    margin-top: 15px; /* Espaçamento acima */
+    display: flex;
+    justify-content: center; /* Centraliza o link */
+    align-items: center;
+}
+
+/*
+ * Estilo do botão/link ".btn-secondary" ("Sou Aluno")
+ * Cria um estilo "contorno" (ghost button).
+ */
+.btn-secondary {
+    display: inline-block; /* Essencial para aplicar padding */
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #63b1b8; /* Cor do texto (mesma cor principal) */
+    text-decoration: none; /* Remove sublinhado */
+    background-color: transparent; /* Fundo transparente */
+    border: 2px solid #63b1b8; /* Borda na cor principal */
+    border-radius: 6px; /* Bordas arredondadas (igual ao botão "PRONTO!") */
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease-in-out; /* Transição suave */
+}
+
+/*
+ * Efeito ao passar o mouse (hover)
+ * Inverte as cores para dar feedback.
+ */
+.btn-secondary:hover {
+    background-color: #63b1b8; /* Fundo fica sólido */
+    color: #ffffff; /* Texto fica branco */
+    transform: scale(1.03); /* Leve aumento */
+}
+    </style>
 </head>
 <body>
-  <div class="login-container">
-    <h1>Olá mentor!</h1>
-    <div class="form-container">
-      <form id="login-form-mentor">
-        <div class="input-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" placeholder="Email" required>
+    <div class="login-container">
+        <h1>Olá mentor!</h1>
+        <div class="form-container">
+            <form id="login-form-mentor">
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <label for="senha">Senha</label>
+                    <div class="password-container">
+                        <input type="password" id="senha" placeholder="Senha" required>
+                        <span class="toggle-password" id="toggle-password">👁️</span>
+                    </div>
+                </div>
+                <hr>
+                <button type="submit" class="btn-continuar" id="login-submit-btn">PRONTO!</button>
+            </form>
+            
+            <p id="message" aria-live="polite"></p>
+
+            <div class="cta-buttons" style="margin-top: 15px;">
+                <a href="/Login Principal/login.html" class="btn-secondary">Sou Aluno</a>
+            </div>
         </div>
-        <div class="input-group">
-          <label for="senha">Senha</label>
-          <div class="password-container">
-            <input type="password" id="senha" placeholder="Senha" required>
-          </div>
-        </div>
-        <hr>
-        <button type="submit" class="btn-continuar">PRONTO!</button>
-      </form>
-      <p id="message"></p>
     </div>
-  </div>
-  <script src="login-mentor.js"></script>
+    <script src="login-mentor.js"></script>
 </body>
 </html>

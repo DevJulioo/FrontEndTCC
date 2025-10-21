@@ -1,27 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cadastro</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cadastro - Quase lá!</title> <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Barra de progresso fixa no topo -->
-  <div class="header">
-    <div class="progress-bar">
-      <div class="progress" style="width: 100%;"></div>
-    </div>
-  </div>
+    <div class="header">
+        <div class="progress-bar"
+             role="progressbar" 
+             aria-valuenow="100" 
+             aria-valuemin="0" 
+             aria-valuemax="100" 
+             aria-valuetext="Fluxo de pré-cadastro completo">
 
-  <div class="container">
-    <div class="speech-bubble">
-      Perfeito! Vamos fazer seu cadastro:
+            <div class="progress" style="width: 100%;"></div>
+        </div>
     </div>
-    <img src="eduvfinho no back (1).gif" alt="Golfinho com chapéu" class="dolphin-img" />
+
+    <div class="container">
+        <div class="speech-bubble">
+            Perfeito! Vamos fazer seu cadastro:
+        </div>
+        <img src="eduvfinho no back (1).gif" alt="Mascote Edufinho com chapéu" class="dolphin-img" />
+        
+        <a href="/Cadastro/index.html" class="continue-btn">CONTINUAR</a>
+    </div>
     
-    <a href="/Cadastro/index.html" class="continue-btn">CONTINUAR</a>
-  </div>
-  
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Espera 2500 milissegundos (2.5s) para o usuário ler a mensagem
+            setTimeout(() => {
+                window.location.href = "/Cadastro/index.html";
+            }, 2500); 
+        });
+    </script>
+    
 </body>
 </html>

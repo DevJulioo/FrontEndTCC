@@ -60,10 +60,7 @@ function setupPageInteractions() {
         });
     }
 
-    // =======================================================
-    // A ÚNICA CORREÇÃO ESTÁ AQUI 👇
-    // Lógica robusta para o menu dinâmico
-    // =======================================================
+    // Lógica robusta para o menu dinâmico (SEU CÓDIGO ORIGINAL - ESTÁ CORRETO)
     const body = document.body;
     const toggleMenuButton = document.querySelector(".toggle-menu");
     const expandSidebarButton = document.querySelector(".expand-sidebar");
@@ -71,96 +68,57 @@ function setupPageInteractions() {
     if (toggleMenuButton && expandSidebarButton) {
         // Botão para FECHAR o menu
         toggleMenuButton.addEventListener("click", () => {
-            // Adiciona a classe ao body para o CSS reagir
             body.classList.add("menu-collapsed");
         });
         
         // Botão para ABRIR o menu
         expandSidebarButton.addEventListener("click", () => {
-            // Remove a classe do body para o layout voltar ao normal
             body.classList.remove("menu-collapsed");
         });
     }
-    // =======================================================
-    // FIM DA CORREÇÃO
-    // =======================================================
 
+    // =======================================================
+    // CORREÇÃO: Código do olho do golfinho (removida a duplicata)
+    // Esta é a versão mais completa que você colou (com suporte a touch)
+    // =======================================================
     const eye = document.querySelector(".eye");
     const pupil = eye ? eye.querySelector(".pupil") : null;
     if (eye && pupil) {
-        let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
-        document.addEventListener("mousemove", (e) => { mouseX = e.clientX; mouseY = e.clientY; });
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+
+        document.addEventListener("mousemove", (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        document.addEventListener("touchmove", (e) => {
+            if (e.touches && e.touches[0]) {
+                mouseX = e.touches[0].clientX;
+                mouseY = e.touches[0].clientY;
+            }
+        }, { passive: true });
+
         function updateEye() {
-            if (!eye.parentElement.offsetParent) return;
             const rect = eye.getBoundingClientRect();
-            const cx = rect.left + rect.width / 2, cy = rect.top + rect.height / 2;
-            let dx = mouseX - cx, dy = mouseY - cy;
+            const cx = rect.left + rect.width / 2;
+            const cy = rect.top + rect.height / 2;
+
+            let dx = mouseX - cx;
+            let dy = mouseY - cy;
             const dist = Math.hypot(dx, dy);
-            const maxMove = (rect.width - pupil.offsetWidth) / 2;
+            const maxMove = Math.max( (rect.width - pupil.offsetWidth) / 2 - 2, 2 );
+
             if (dist > 0) {
                 dx = (dx / dist) * Math.min(dist, maxMove);
                 dy = (dy / dist) * Math.min(dist, maxMove);
+            } else {
+                dx = 0; dy = 0;
             }
-            pupil.style.transform = `translate(${dx}px, ${dy}px)`;
+            
+            pupil.style.transform = `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px))`;
             requestAnimationFrame(updateEye);
         }
         updateEye();
     }
 }
-
- /* ==========================
-     Olho do golfinho (UM olho que segue o mouse)
-     ========================== */
- const eye = document.querySelector(".eye");
- const pupil = eye ? eye.querySelector(".pupil") : null;
- if (eye && pupil) {
-   // variável que guarda última posição do mouse (útil se quiser animar)
-   let mouseX = window.innerWidth / 2;
-   let mouseY = window.innerHeight / 2;
-
-   // atualiza mouse global
-   document.addEventListener("mousemove", (e) => {
-     mouseX = e.clientX;
-     mouseY = e.clientY;
-   });
-
-   // também lidar com toque (para mobile)
-   document.addEventListener("touchmove", (e) => {
-     if (e.touches && e.touches[0]) {
-       mouseX = e.touches[0].clientX;
-       mouseY = e.touches[0].clientY;
-     }
-   }, { passive: true });
-
-   function updateEye() {
-     const rect = eye.getBoundingClientRect();
-     const cx = rect.left + rect.width / 2;
-     const cy = rect.top + rect.height / 2;
-
-     // vetor do centro do olho até o ponteiro
-     let dx = mouseX - cx;
-     let dy = mouseY - cy;
-
-     // distância real
-     const dist = Math.hypot(dx, dy);
-
-     // max movimento da pupila: deixamos um pouco dentro do branco do olho
-     const maxMove = Math.max( (rect.width - pupil.offsetWidth) / 2 - 2, 2 );
-
-     if (dist > 0) {
-       // normalizar e multiplicar por maxMove (limita o movimento)
-       dx = (dx / dist) * Math.min(dist, maxMove);
-       dy = (dy / dist) * Math.min(dist, maxMove);
-     } else {
-       dx = 0; dy = 0;
-     }
-
-     // Aplicar transformação relativa ao centro da pupila
-     pupil.style.transform = `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px))`;
-
-     requestAnimationFrame(updateEye);
-   }
-
-   // iniciar loop
-   updateEye();
- }

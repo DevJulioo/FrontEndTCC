@@ -3,32 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EducaSENAI</title>
+    <title>EducaSENAI - Login Aluno</title>
     <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .password-container {
+            position: relative;
+            width: 100%;
+        }
+        .password-container input {
+            width: 100%;
+            /* Ajuste o padding para não sobrepor o ícone */
+            padding-right: 40px; 
+            box-sizing: border-box; 
+        }
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            user-select: none;
+        }
+    </style>
 </head>
 <body>
     <div class="layout">
         <div class="left-side">
             <div class="info">
-              <img src="logoEducaSenai.png" alt="Logo EducaSENAI" class="logo" />
-              <p>Aprenda, evolua e transforme o futuro com o SENAI.</p>
+                <img src="logoEducaSenai.png" alt="Logo EducaSENAI" class="logo" />
+                <p>Aprenda, evolua e transforme o futuro com o SENAI.</p>
             </div>
-            </div>
+        </div>
             
         <div class="right-side">
             <div class="login-section">
-                <h2>Acesse sua Conta</h2>
+                <h2>Acesse sua Conta (Aluno)</h2>
                 
                 <form id="login-form">
                     <input type="email" id="email" placeholder="Email" required>
-                    <input type="password" id="senha" placeholder="Senha" required>
-                    <button type="submit" class="btn">Entrar</button>
+                    
+                    <div class="password-container">
+                        <input type="password" id="senha" placeholder="Senha" required>
+                        <span class="toggle-password" id="toggle-password">👁️</span>
+                    </div>
+                    
+                    <button type="submit" class="btn" id="login-submit-btn">Entrar</button>
                 </form>
 
-                <p id="message"></p>
+
+                <p id="message" aria-live="polite"></p>
                 
                 <div class="cta-buttons">
                     <a href="/Login Professor/index.html" class="btn-secondary">Sou Mentor</a>
+                    <a href="/Tela eu quero aprender 1/index.html" class="btn-secondary">Criar conta (Aluno ou Mentor)</a>
                 </div>
             </div>
         </div>

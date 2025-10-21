@@ -1,34 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Quiz de Conhecimento</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quiz de Conhecimento</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Barra de progresso fixa no topo -->
-  <div class="header">
-    <div class="progress-bar">
-      <div class="progress" style="width: 33.33%;"></div>
+    <div class="header">
+        <div class="progress-bar" 
+             id="progress-bar-quiz"
+             role="progressbar" 
+             aria-valuenow="0" 
+             aria-valuemin="0" 
+             aria-valuemax="100" 
+             aria-valuetext="Iniciando quiz">
+            <div class="progress" id="progress-bar-inner"></div>
+        </div>
     </div>
-  </div>
 
-  <div class="container">
-    <div class="question-box">
-      <p class="pergunta">O quanto você entende de ()?</p>
+    <div class="container">
+        <fieldset class="question-box">
+            <legend class="pergunta" id="quiz-question">O quanto você entende de ()?</legend>
+
+            <div class="options" role="radiogroup" aria-labelledby="quiz-question">
+                <button class="option" type="button" role="radio" aria-checked="false">Não sei nada de ()!</button>
+                <button class="option" type="button" role="radio" aria-checked="false">Sei o básico</button>
+                <button class="option" type="button" role="radio" aria-checked="false">Sei, mas preciso de ajuda!</button>
+                <button class="option" type="button" role="radio" aria-checked="false">Sei, mas quero aprender mais</button>
+            </div>
+        </fieldset>
+        
+        <a href="/Tempo de estudos/index.html" class="continue-btn disabled" id="btn-continuar" aria-disabled="true" tabindex="-1">CONTINUAR</a>
     </div>
-    <div class="options">
-      <button class="option" type="button">Não sei nada de ()!</button>
-      <button class="option" type="button">Sei o básico</button>
-      <button class="option" type="button">Sei, mas preciso de ajuda!</button>
-      <button class="option" type="button">Sei, mas quero aprender mais</button>
-    </div>
-    <a href="/Tempo de estudos/index.html" class="continue-btn disabled" id="btn-continuar" aria-disabled="true" tabindex="-1">CONTINUAR</a>
 
-  </div>
-
-  <script src="script.js"></script>
-  
+    <script src="script.js"></script>
 </body>
 </html>

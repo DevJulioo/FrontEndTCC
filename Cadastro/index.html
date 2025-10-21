@@ -3,27 +3,78 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cadastro</title>
+    <title>Cadastro - Crie sua Conta</title>
     <link rel="stylesheet" href="style.css" />
+
+    <style>
+        .password-container {
+            position: relative;
+            width: 100%;
+        }
+        .password-container input {
+            width: 100%; /* Garante que o input ocupe todo o espaço */
+            padding-right: 40px; /* Espaço para o ícone */
+            box-sizing: border-box; /* Garante que o padding não aumente a largura total */
+        }
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            user-select: none; /* Impede que o ícone seja selecionado como texto */
+        }
+        .error-text {
+            color: #ff3860; /* Vermelho para erros */
+            font-size: 0.875em;
+            display: block; /* Faz ocupar a própria linha */
+            min-height: 1.2em; /* Evita que o layout "pule" quando o texto aparece */
+            margin-top: 4px;
+            text-align: left; /* Alinha o texto de erro à esquerda */
+        }
+        /* Classes para a mensagem principal */
+        .success-message {
+            color: #23d160; /* Verde para sucesso */
+        }
+        .error-message {
+             color: #ff3860; /* Vermelho para erros */
+        }
+    </style>
 </head>
 <body>
     <div class="login-container">
         <h1>Crie sua conta</h1>
         <div class="form-container">
             <form id="register-form">
+                
                 <div class="input-group">
                     <label for="name-input">Nome Completo</label>
                     <input type="text" id="name-input" placeholder="Nome completo" required />
+                    <span class="error-text" id="name-error"></span>
                 </div>
+                
                 <div class="input-group">
                     <label for="email-input">Email</label>
                     <input type="email" id="email-input" placeholder="Email" required />
+                    <span class="error-text" id="email-error"></span>
                 </div>
+                
                 <div class="input-group">
                     <label for="password-input">Senha</label>
                     <div class="password-container">
-                        <input type="password" id="password-input" placeholder="Senha" required />
+                        <input type="password" id="password-input" placeholder="Mínimo 8 caracteres" required />
+                        <span class="toggle-password" id="toggle-password">👁️</span>
                     </div>
+                    <span class="error-text" id="password-error"></span>
+                </div>
+                
+                <div class="input-group">
+                    <label for="confirm-password-input">Confirmar Senha</label>
+                    <div class="password-container">
+                        <input type="password" id="confirm-password-input" placeholder="Confirme sua senha" required />
+                        <span class="toggle-password" id="toggle-confirm-password">👁️</span>
+                    </div>
+                    <span class="error-text" id="confirm-password-error"></span>
                 </div>
                 
                 <div class="input-group">
@@ -33,10 +84,10 @@
                 
                 <hr />
 
-                <button type="submit" class="btn-continuar">CADASTRAR</button>
+                <button type="submit" class="btn-continuar" id="register-submit-btn">CADASTRAR</button>
             </form>
             
-            <p id="message"></p>
+            <p id="message" aria-live="polite"></p>
         </div>
     </div>
 
